@@ -5,6 +5,7 @@ import { MyApp } from './app.component';
 
 import { FinancesPage } from '../pages/finances/finances';
 import { SettingsPage } from '../pages/settings/settings';
+import { BudgetPage } from '../pages/budget/budget';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 
@@ -17,6 +18,7 @@ import { Data } from '../providers/data';
   declarations: [
     MyApp,
     FinancesPage,
+    BudgetPage,
     SettingsPage,
     HomePage,
     TabsPage
@@ -29,6 +31,7 @@ import { Data } from '../providers/data';
   entryComponents: [
     MyApp,
     FinancesPage,
+    BudgetPage,
     SettingsPage,
     HomePage,
     TabsPage
