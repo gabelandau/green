@@ -4,7 +4,7 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
 import { BudgetPage } from '../pages/budget/budget';
-import { ContactPage } from '../pages/contact/contact';
+import { SettingsPage } from '../pages/settings/settings';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 
@@ -17,7 +17,7 @@ import { Data } from '../providers/data';
   declarations: [
     MyApp,
     BudgetPage,
-    ContactPage,
+    SettingsPage,
     HomePage,
     TabsPage
   ],
@@ -29,7 +29,7 @@ import { Data } from '../providers/data';
   entryComponents: [
     MyApp,
     BudgetPage,
-    ContactPage,
+    SettingsPage,
     HomePage,
     TabsPage
   ],
