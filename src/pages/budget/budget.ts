@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { Data } from '../../providers/data';
 
 @Component({
   selector: 'page-budget',
@@ -7,8 +8,12 @@ import { NavController } from 'ionic-angular';
 })
 export class BudgetPage {
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, public dataProvider: Data) {
 
+  }
+
+  ionViewDidLoad() {
+    this.dataProvider.load();
   }
 
 }

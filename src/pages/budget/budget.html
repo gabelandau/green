@@ -6,6 +6,35 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-    This is the budget page
+<ion-content class="outer-content">
+    <div *ngFor="let type of dataProvider.budgetsTotal">
+      {{type.name}}
+      <ul *ngFor="let item of type.data">
+        <li>{{item.name}}</li>
+        <li>{{item.amount}}</li>
+      </ul>
+    </div>
+
+    <ion-list>
+      <ion-list-header>
+        Busters
+      </ion-list-header>
+
+        <ion-item>
+          <h2>Venkman</h2>
+          <p>Back off man, I'm a scientist.</p>
+        </ion-item>
+
+      <ion-item>
+        <h2>Venkman</h2>
+        <p>Back off man, I'm a scientist.</p>
+      </ion-item>
+
+      <ion-item>
+        <h2>Venkman</h2>
+        <p>Back off man, I'm a scientist.</p>
+      </ion-item>
+    </ion-list>
+
+
 </ion-content>

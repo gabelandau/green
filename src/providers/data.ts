@@ -5,6 +5,7 @@ import 'rxjs/add/operator/map';
 export class Data {
 
   budgets: any[];
+  budgetsTotal: any[];
   expenses: any[];
   accounts: any[];
 
@@ -25,6 +26,39 @@ export class Data {
       {
         name: "Transportation",
         amount: 82.62
+      }
+    ];
+
+    this.budgetsTotal = [
+      {
+        name: "Variable",
+        data: [
+          {
+            name: "Shopping",
+            amount: 21.52
+          },
+          {
+            name: "Entertainment",
+            amount: -4.21
+          },
+          {
+            name: "Transportation",
+            amount: 82.62
+          }
+        ]
+      },
+      {
+        name: "Fixed",
+        data: [
+          {
+            name: "Rent",
+            amount: 200
+          },
+          {
+            name: "Utilities",
+            amount: 42.25
+          }
+        ]
       }
     ];
 
