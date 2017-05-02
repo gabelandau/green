@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Storage } from '@ionic/storage';
 import 'rxjs/add/operator/map';
 
 @Injectable()
@@ -9,7 +10,7 @@ export class Data {
   expenses: any[];
   accounts: any[];
 
-  constructor() {
+  constructor(public storage: Storage) {
 
   }
 

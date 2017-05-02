@@ -14,7 +14,7 @@
       <ion-item *ngFor="let item of type.data">
         <span style="text-align:left;">
           {{item.name}}
-          <span style="float:right;">{{item.amount}}</span>
+          <span style="float:right;" [ngClass]="{'negative': item.amount < 0 }">${{item.amount}}</span>
         </span>
       </ion-item>
 

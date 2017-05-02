@@ -13,7 +13,7 @@ export class BudgetPage {
   }
 
   ionViewDidLoad() {
-    this.dataProvider.load();
+      this.dataProvider.load();
   }
 
 }
