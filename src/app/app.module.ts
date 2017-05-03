@@ -13,6 +13,8 @@ import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 
 import { AddBudgetFormModal } from '../pages/admin/add-budget-form/add-budget-form';
+import { AddExpenseFormModal } from '../pages/admin/add-expense-form/add-expense-form';
+import { AddAccountFormModal } from '../pages/admin/add-account-form/add-account-form';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -29,7 +31,9 @@ import { Data } from '../providers/data';
     AdminPage,
     HomePage,
     TabsPage,
-    AddBudgetFormModal
+    AddBudgetFormModal,
+    AddExpenseFormModal,
+    AddAccountFormModal
   ],
   imports: [
     BrowserModule,
@@ -46,7 +50,9 @@ import { Data } from '../providers/data';
     AdminPage,
     HomePage,
     TabsPage,
-    AddBudgetFormModal
+    AddBudgetFormModal,
+    AddExpenseFormModal,
+    AddAccountFormModal
   ],
   providers: [
     StatusBar,
