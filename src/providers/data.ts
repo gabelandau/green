@@ -15,86 +15,34 @@ export class Data {
   }
 
   load() {
-    this.budgets = [
-      {
-        name: "Shopping",
-        amount: 21.52
-      },
-      {
-        name: "Entertainment",
-        amount: -4.21
-      },
-      {
-        name: "Transportation",
-        amount: 82.62
-      }
-    ];
+    this.storage.get('budgets').then((val) => {
+      this.budgets = val;
+    });
 
-    this.budgetsTotal = [
-      {
-        name: "Variable",
-        data: [
-          {
-            name: "Shopping",
-            amount: 21.52
-          },
-          {
-            name: "Entertainment",
-            amount: -4.21
-          },
-          {
-            name: "Transportation",
-            amount: 82.62
-          }
-        ]
-      },
-      {
-        name: "Fixed",
-        data: [
-          {
-            name: "Rent",
-            amount: 200
-          },
-          {
-            name: "Utilities",
-            amount: 42.25
-          }
-        ]
-      }
-    ];
+    this.storage.get('budgetsTotal').then((val) => {
+      this.budgetsTotal = val;
+    });
 
-    this.expenses = [
-      {
-        name: "McDonalds",
-        date: "4/22",
-        amount: 11.52
-      },
-      {
-        name: "Best Buy",
-        date: "4/22",
-        amount: 24.27
-      },
-      {
-        name: "Target",
-        date: "4/21",
-        amount: 73.32
-      }
-    ];
+    this.storage.get('expenses').then((val) => {
+      this.expenses = val;
+    });
 
-    this.accounts = [
-      {
-        name: "Checking",
-        balance: 421.95
-      },
-      {
-        name: "Savings",
-        balance: 1052.23
-      },
-      {
-        name: "Credit Card",
-        balance: -24.92
-      }
-    ];
+    this.storage.get('accounts').then((val) => {
+      this.accounts = val;
+    });
+  }
+
+  addNewBudget(name, amount, type) {
+    if(type == "variable") {
+      this.budgetsTotal[0].data.push({
+        "name": name,
+        "amount": amount
+      })
+    }
+
+    this.storage.set('budgetsTotal', this.budgetsTotal).then((val) => {
+      console.log("It worked?");
+    });
   }
 
 }
