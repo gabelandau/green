@@ -45,4 +45,16 @@ export class Data {
     });
   }
 
+  addNewExpense(name, date, amount) {
+    this.expenses.push({
+      "name": name,
+      "date": date,
+      "amount": amount
+    });
+
+    this.storage.set('expenses', this.expenses).then((val) => {
+      console.log("It worked x2");
+    })
+  }
+
 }

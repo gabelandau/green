@@ -6,6 +6,23 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-    This is the expenses overview page
+<ion-content>
+
+  <ion-list>
+
+    <ion-list-header>Expenses</ion-list-header>
+
+    <ion-item *ngFor="let item of dataProvider.expenses">
+      <ion-grid>
+        <ion-row>
+          <ion-col col-2>{{item.date | date: 'MM/dd'}}</ion-col>
+          <ion-col>{{item.name}}</ion-col>
+          <ion-col class="amount">${{item.amount}}</ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+
+  </ion-list>
+
+
 </ion-content>
