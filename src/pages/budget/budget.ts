@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { ModalController } from 'ionic-angular';
 import { Data } from '../../providers/data';
+import { AddBudgetFormModal } from '../admin/add-budget-form/add-budget-form'
 
 @Component({
   selector: 'page-budget',
@@ -8,7 +9,7 @@ import { Data } from '../../providers/data';
 })
 export class BudgetPage {
 
-  constructor(public navCtrl: NavController, public dataProvider: Data) {
+  constructor(public modalCtrl: ModalController, public dataProvider: Data) {
 
   }
 
@@ -16,4 +17,8 @@ export class BudgetPage {
       this.dataProvider.load();
   }
 
+  showAddBudget() {
+      let myModal = this.modalCtrl.create(AddBudgetFormModal);
+      myModal.present();
+  }
 }
