@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ViewController } from 'ionic-angular';
+import { Data } from '../../../providers/data';
 
 @Component({
   selector: 'page-add-account-form',
@@ -7,7 +8,10 @@ import { ViewController } from 'ionic-angular';
 })
 export class AddAccountFormModal {
 
-  constructor(public viewCtrl: ViewController) {
+  name: String;
+  balance: Number;
+
+  constructor(public viewCtrl: ViewController, public dataProvider: Data) {
 
   }
 
@@ -15,4 +19,7 @@ export class AddAccountFormModal {
     this.viewCtrl.dismiss();
   }
 
+  submit() {
+    this.dataProvider.addNewAccount(this.name, this.balance);
+  }
 }

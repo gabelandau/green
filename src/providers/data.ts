@@ -38,6 +38,11 @@ export class Data {
         "name": name,
         "amount": amount
       })
+    } else {
+      this.budgetsTotal[1].data.push({
+        "name": name,
+        "amount": amount
+      })
     }
 
     this.storage.set('budgetsTotal', this.budgetsTotal).then((val) => {
@@ -45,7 +50,7 @@ export class Data {
     });
   }
 
-  addNewExpense(name, date, amount) {
+  addNewExpense(name: String, date: String, amount: Number) {
     this.expenses.push({
       "name": name,
       "date": date,
@@ -54,6 +59,17 @@ export class Data {
 
     this.storage.set('expenses', this.expenses).then((val) => {
       console.log("It worked x2");
+    })
+  }
+
+  addNewAccount(name: String, balance: Number) {
+    this.accounts.push({
+      "name": name,
+      "balance": balance
+    });
+
+    this.storage.set('accounts', this.accounts).then((val) => {
+      console.log("It worked x3!");
     })
   }
 

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ViewController } from 'ionic-angular';
 import { Data } from '../../../providers/data';
+import { AlertController } from 'ionic-angular';
 
 @Component({
   selector: 'page-add-budget-form',
@@ -12,7 +13,7 @@ export class AddBudgetFormModal {
   type: String;
   amount: Number;
 
-  constructor(public viewCtrl: ViewController, public dataProvider: Data) {
+  constructor(public viewCtrl: ViewController, public dataProvider: Data, public alertCtrl: AlertController) {
 
   }
 
@@ -26,6 +27,13 @@ export class AddBudgetFormModal {
 
   submit() {
     this.dataProvider.addNewBudget(this.name, this.amount, this.type);
+    let alert = this.alertCtrl.create({
+      title: 'Budget Added',
+      subTitle: 'Your budget for ' + this.name + ' was recorded.',
+      buttons: ['OK']
+    });
+    alert.present();
+    this.viewCtrl.dismiss();
   }
 
 }

@@ -15,35 +15,15 @@
 <ion-content>
   <ion-list>
     <ion-list-header>
-      Budget Information
+      Account Information
     </ion-list-header>
     <ion-item>
-      <ion-label stacked>Budget Name</ion-label>
-      <ion-input type="text"></ion-input>
-    </ion-item>
-  </ion-list>
-
-  <ion-list radio-group>
-    <ion-list-header>
-      Budget Type
-    </ion-list-header>
-    <ion-item>
-      <ion-label>Fixed</ion-label>
-      <ion-radio checked="true" value="fixed"></ion-radio>
+      <ion-label stacked>Account Name</ion-label>
+      <ion-input type="text" [(ngModel)]="name"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label>Variable</ion-label>
-      <ion-radio value="variable"></ion-radio>
-    </ion-item>
-  </ion-list>
-
-  <ion-list>
-    <ion-list-header>
-      Financial Information
-    </ion-list-header>
-    <ion-item>
-      <ion-label stacked>Budget Amount</ion-label>
-      <ion-input type="number"></ion-input>
+      <ion-label stacked>Account Balance</ion-label>
+      <ion-input type="number" [(ngModel)]="balance"></ion-input>
     </ion-item>
   </ion-list>
 
@@ -53,7 +33,7 @@
   <ion-toolbar>
     <ion-buttons end>
       <button ion-button color="danger">Cancel</button>
-      <button ion-button color="royal">Save</button>
+      <button ion-button color="royal" (click)="submit()">Save</button>
     </ion-buttons>
   </ion-toolbar>
 </ion-footer>
