@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
 import { BudgetPage } from '../budget/budget';
-import { ExpensesPage } from "../expenses/expenses";
+import { ExpensesPage } from '../expenses/expenses';
+import { AccountsPage } from '../accounts/accounts'
 
 @Component({
   selector: 'page-finances',
@@ -11,8 +11,9 @@ export class FinancesPage {
 
   budgetRoot = BudgetPage;
   expensesRoot = ExpensesPage;
+  accountsRoot = AccountsPage;
 
-  constructor(public navCtrl: NavController) {
+  constructor() {
 
   }
 

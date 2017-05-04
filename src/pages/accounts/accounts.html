@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Accounts
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="outer-content">
+
+    <ion-list *ngFor="let type of dataProvider.budgetsTotal">
+
+      <ion-list-header>{{type.name}}</ion-list-header>
+      <ion-item *ngFor="let item of type.data">
+        <span style="text-align:left;">
+          {{item.name}}
+          <span style="float:right;" [ngClass]="{'negative': item.amount < 0 }">${{item.amount}}</span>
+        </span>
+      </ion-item>
+
+    </ion-list>
+
+</ion-content>

@@ -5,6 +5,7 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
 import { FinancesPage } from '../pages/finances/finances';
+import { AccountsPage } from '../pages/accounts/accounts';
 import { SettingsPage } from '../pages/settings/settings';
 import { BudgetPage } from '../pages/budget/budget';
 import { AdminPage } from '../pages/admin/admin';
@@ -25,6 +26,7 @@ import { Data } from '../providers/data';
   declarations: [
     MyApp,
     FinancesPage,
+    AccountsPage,
     BudgetPage,
     ExpensesPage,
     SettingsPage,
@@ -44,6 +46,7 @@ import { Data } from '../providers/data';
   entryComponents: [
     MyApp,
     FinancesPage,
+    AccountsPage,
     BudgetPage,
     ExpensesPage,
     SettingsPage,
