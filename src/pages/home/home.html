@@ -32,7 +32,7 @@
       <ion-list>
         <ion-grid>
           <ion-row *ngFor="let item of dataProvider.expenses">
-            <ion-col col-2>{{item.date}}</ion-col>
+            <ion-col col-4>{{item.date}}</ion-col>
             <ion-col>{{item.name}}</ion-col>
             <ion-col class="amount">${{item.amount}}</ion-col>
           </ion-row>

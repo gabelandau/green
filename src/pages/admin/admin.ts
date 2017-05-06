@@ -83,17 +83,17 @@ export class AdminPage {
       let expenses = [
         {
           name: "McDonalds",
-          date: "4/22",
+          date: "04/22/2017",
           amount: 11.52
         },
         {
           name: "Best Buy",
-          date: "4/22",
+          date: "04/22/2017",
           amount: 24.27
         },
         {
           name: "Target",
-          date: "4/21",
+          date: "04/21/2017",
           amount: 73.32
         }
       ];
