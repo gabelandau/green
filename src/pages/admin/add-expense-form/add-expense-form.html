@@ -29,13 +29,19 @@
       <ion-label stacked>Expense Amount</ion-label>
       <ion-input type="number" [(ngModel)]="amount"></ion-input>
     </ion-item>
+    <ion-item>
+      <ion-label stacked>Budget</ion-label>
+      <ion-select [(ngModel)]="budget">
+        <ion-option *ngFor="let item of dataProvider.budgets" value="{{item.name}}">{{item.name}}</ion-option>
+      </ion-select>
+    </ion-item>
   </ion-list>
 </ion-content>
 
 <ion-footer>
   <ion-toolbar>
     <ion-buttons end>
-      <button ion-button color="danger">Cancel</button>
+      <button ion-button color="danger" (click)="dismiss()">Cancel</button>
       <button ion-button color="royal" (click)="submit()">Save</button>
     </ion-buttons>
   </ion-toolbar>

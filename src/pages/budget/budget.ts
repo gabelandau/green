@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ModalController } from 'ionic-angular';
 import { Data } from '../../providers/data';
-import { AddBudgetFormModal } from '../admin/add-budget-form/add-budget-form'
+import { AddBudgetFormModal } from '../admin/add-budget-form/add-budget-form';
 
 @Component({
   selector: 'page-budget',

@@ -22,6 +22,7 @@ export class AddExpenseFormModal {
   }
 
   ionViewDidLoad() {
+    this.dataProvider.load();
     let date = new Date();
     let string;
 

@@ -3,6 +3,11 @@
     <ion-title>
       Expenses
     </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only color="royal" (click)="showAddExpense()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
@@ -15,7 +20,7 @@
     <ion-item *ngFor="let item of dataProvider.expenses">
       <ion-grid>
         <ion-row>
-          <ion-col col-2>{{item.date | date: 'MM/dd'}}</ion-col>
+          <ion-col col-2>{{item.date}}</ion-col>
           <ion-col>{{item.name}}</ion-col>
           <ion-col class="amount">${{item.amount}}</ion-col>
         </ion-row>
