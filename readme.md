@@ -1,3 +1,3 @@
 To-Do
 
-* Create date adapter for storage/display
+[ ] Create date adapter for storage/display
