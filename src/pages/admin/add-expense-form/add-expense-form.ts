@@ -13,6 +13,7 @@ export class AddExpenseFormModal {
   name: string;
   amount: number;
   budget: string;
+  account: string;
 
   constructor(public viewCtrl: ViewController, public dataProvider: Data, public alertCtrl: AlertController) {
 
@@ -34,7 +35,7 @@ export class AddExpenseFormModal {
   }
 
   submit() {
-    this.dataProvider.addNewExpense(this.name, this.date, this.amount, this.budget);
+    this.dataProvider.addNewExpense(this.name, this.date, this.amount, this.budget, this.account);
     let alert = this.alertCtrl.create({
       title: 'Expense Added',
       subTitle: 'Your expense for ' + this.name + ' was recorded.',

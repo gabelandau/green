@@ -39,12 +39,13 @@ export class Data {
     });
   }
 
-  addNewExpense(name: string, date: string, amount: number, budget: string) {
+  addNewExpense(name: string, date: string, amount: number, budget: string, account: string) {
     this.expenses.push({
       "name": name,
       "date": date,
       "amount": amount,
-      "budget": budget
+      "budget": budget,
+      "account": account
     });
 
     this.storage.set('expenses', this.expenses).then((val) => {
@@ -63,6 +64,20 @@ export class Data {
       }
 
       this.storage.set('budgets', tempBudgets).then((val) => {});
+    });
+
+    let tempAccounts: any[];
+
+    this.storage.get('accounts').then((val) => {
+      tempAccounts = val;
+
+      for(let item of tempAccounts) {
+        if (item.name == account) {
+          item.balance = item.balance - amount;
+        }
+      }
+
+      this.storage.set('accounts', tempAccounts).then((val) => {});
     });
   }
 
