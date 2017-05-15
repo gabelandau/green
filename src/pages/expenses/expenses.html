@@ -21,7 +21,7 @@
       <ion-grid (click)="showEditExpense(item)">
         <ion-row>
           <ion-col>{{item.name}}</ion-col>
-          <ion-col class="amount">${{item.amount}}</ion-col>
+          <ion-col class="amount" [ngClass]="{'negative': item.amount < 0 }">{{item.amount| currency:'USD':true}}</ion-col>
         </ion-row>
         <ion-row>
           <ion-col id="budget">{{item.budget}}</ion-col>

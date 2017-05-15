@@ -9,10 +9,12 @@ import { AlertController } from 'ionic-angular';
 })
 export class EditExpenseFormModal {
 
-  date: String;
-  name: String;
-  amount: Number;
-  budget: String;
+  date: string;
+  name: string;
+  amount: number;
+  budget: string;
+  id: number;
+  account: string;
 
   constructor(public viewCtrl: ViewController, public dataProvider: Data, public alertCtrl: AlertController, public params: NavParams) {
   }
@@ -26,10 +28,12 @@ export class EditExpenseFormModal {
     this.amount = this.params.get('amount');
     this.date = this.params.get('date');
     this.budget = this.params.get('budget');
+    this.id = this.params.get('id');
+    this.account = this.params.get('account');
   }
 
   submit() {
-    //this.dataProvider.addNewExpense(this.name, this.date, this.amount, this.budget);
+    this.dataProvider.editExpense(this.id, this.name, this.date, this.amount, this.budget, this.account);
     let alert = this.alertCtrl.create({
       title: 'Expense Edited',
       subTitle: 'Your expense for ' + this.name + ' was edited.',

@@ -6,7 +6,6 @@ import 'rxjs/add/operator/map';
 export class Data {
 
   budgets: any[];
-  budgetsTotal: any[];
   expenses: any[];
   accounts: any[];
 
@@ -19,10 +18,6 @@ export class Data {
       this.budgets = val;
     });
 
-    this.storage.get('budgetsTotal').then((val) => {
-      this.budgetsTotal = val;
-    });
-
     this.storage.get('expenses').then((val) => {
       this.expenses = val;
     });
@@ -33,30 +28,30 @@ export class Data {
   }
 
   addNewBudget(name, amount, type) {
-    if(type == "variable") {
-      this.budgetsTotal[0].data.push({
-        "name": name,
-        "amount": amount
-      })
-    } else {
-      this.budgetsTotal[1].data.push({
-        "name": name,
-        "amount": amount
-      })
-    }
+    this.budgets.push({
+      "name": name,
+      "amount": amount,
+      "type": type
+    });
 
-    this.storage.set('budgetsTotal', this.budgetsTotal).then((val) => {
+    this.storage.set('budgets', this.budgets).then((val) => {
       console.log("It worked?");
     });
   }
 
-  addNewExpense(name: string, date: string, amount: number, budget: string) {
+  addNewExpense(name: string, date: string, amount: number, budget: string, account: string) {
+    let newId = this.expenses.length + 1;
+
     this.expenses.push({
+      "id": newId,
       "name": name,
       "date": date,
       "amount": amount,
-      "budget": budget
+      "budget": budget,
+      "account": account
     });
+
+    console.log(newId);
 
     this.storage.set('expenses', this.expenses).then((val) => {
       console.log("It worked x2");
@@ -64,22 +59,30 @@ export class Data {
 
     let tempBudgets: any[];
 
-    this.storage.get('budgetsTotal').then((val) => {
+    this.storage.get('budgets').then((val) => {
       tempBudgets = val;
 
-      for(let item of tempBudgets[0].data) {
+      for(let item of tempBudgets) {
         if (item.name == budget) {
           item.amount = item.amount - amount;
         }
       }
 
-      for(let item of tempBudgets[1].data) {
-        if (item.name == budget) {
-          item.amount = item.amount - amount;
+      this.storage.set('budgets', tempBudgets).then((val) => {});
+    });
+
+    let tempAccounts: any[];
+
+    this.storage.get('accounts').then((val) => {
+      tempAccounts = val;
+
+      for(let item of tempAccounts) {
+        if (item.name == account) {
+          item.balance = item.balance - amount;
         }
       }
 
-      this.storage.set('budgetsTotal', tempBudgets).then((val) => {});
+      this.storage.set('accounts', tempAccounts).then((val) => {});
     });
   }
 
@@ -92,6 +95,24 @@ export class Data {
     this.storage.set('accounts', this.accounts).then((val) => {
       console.log("It worked x3!");
     })
+  }
+
+  editExpense(id: number, name: string, date: string, amount: number, budget: string, account: string) {
+
+    this.storage.get('expenses').then((val) => {
+      for(let item of val) {
+        if (item.id == id) {
+          item.name = name;
+          item.date = date;
+          item.amount = amount;
+          item.budget = budget;
+          item.account = account;
+        }
+      }
+
+      this.storage.set('expenses', this.expenses).then((val) => {});
+
+    });
   }
 
 }
