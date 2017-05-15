@@ -9,9 +9,10 @@ import { AlertController } from 'ionic-angular';
 })
 export class AddExpenseFormModal {
 
-  date: String;
-  name: String;
-  amount: Number;
+  date: string;
+  name: string;
+  amount: number;
+  budget: string;
 
   constructor(public viewCtrl: ViewController, public dataProvider: Data, public alertCtrl: AlertController) {
 
@@ -33,7 +34,7 @@ export class AddExpenseFormModal {
   }
 
   submit() {
-    this.dataProvider.addNewExpense(this.name, this.date, this.amount);
+    this.dataProvider.addNewExpense(this.name, this.date, this.amount, this.budget);
     let alert = this.alertCtrl.create({
       title: 'Expense Added',
       subTitle: 'Your expense for ' + this.name + ' was recorded.',

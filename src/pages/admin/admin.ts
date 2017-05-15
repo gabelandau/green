@@ -32,21 +32,6 @@ export class AdminPage {
 
   setDefaultData() {
     this.storage.ready().then(() => {
-      let budgets = [
-        {
-          name: "Shopping",
-          amount: 21.52
-        },
-        {
-          name: "Entertainment",
-          amount: -4.21
-        },
-        {
-          name: "Transportation",
-          amount: 82.62
-        }
-      ];
-
       let budgetsTotal = [
         {
           name: "Variable",
@@ -84,17 +69,20 @@ export class AdminPage {
         {
           name: "McDonalds",
           date: "04/22/2017",
-          amount: 11.52
+          amount: 11.52,
+          budget: "Shopping"
         },
         {
           name: "Best Buy",
           date: "04/22/2017",
-          amount: 24.27
+          amount: 24.27,
+          budget: "Entertainment"
         },
         {
           name: "Target",
           date: "04/21/2017",
-          amount: 73.32
+          amount: 73.32,
+          budget: "Shopping"
         }
       ];
 
@@ -113,9 +101,6 @@ export class AdminPage {
         }
       ];
 
-      this.storage.set('budgets', budgets).then((val) => {
-        console.log(val);
-      });
       this.storage.set('budgetsTotal', budgetsTotal).then((val) => {
         console.log(val);
       });

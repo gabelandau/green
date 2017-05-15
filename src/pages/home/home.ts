@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Data } from '../../providers/data';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'page-home',
@@ -8,12 +9,17 @@ import { Data } from '../../providers/data';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController, public dataProvider: Data) {
+  budgetsTotal: any[];
+
+  constructor(public navCtrl: NavController, public dataProvider: Data, public storage: Storage) {
 
   }
 
   ionViewDidLoad() {
     this.dataProvider.load();
+    this.storage.get('budgetsTotal').then((val) => {
+      this.budgetsTotal = val[0].data;
+    });
   }
 
 }

@@ -31,8 +31,14 @@
     </ion-item>
     <ion-item>
       <ion-label stacked>Budget</ion-label>
-      <ion-select [(ngModel)]="budget">
+      <ion-select [(ngModel)]="budget" interface="action-sheet">
         <ion-option *ngFor="let item of dataProvider.budgets" value="{{item.name}}">{{item.name}}</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Account</ion-label>
+      <ion-select [(ngModel)]="account" interface="action-sheet">
+        <ion-option *ngFor="let item of dataProvider.accounts" value="{{item.name}}">{{item.name}}</ion-option>
       </ion-select>
     </ion-item>
   </ion-list>

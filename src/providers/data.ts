@@ -50,16 +50,37 @@ export class Data {
     });
   }
 
-  addNewExpense(name: String, date: String, amount: Number) {
+  addNewExpense(name: string, date: string, amount: number, budget: string) {
     this.expenses.push({
       "name": name,
       "date": date,
-      "amount": amount
+      "amount": amount,
+      "budget": budget
     });
 
     this.storage.set('expenses', this.expenses).then((val) => {
       console.log("It worked x2");
-    })
+    });
+
+    let tempBudgets: any[];
+
+    this.storage.get('budgetsTotal').then((val) => {
+      tempBudgets = val;
+
+      for(let item of tempBudgets[0].data) {
+        if (item.name == budget) {
+          item.amount = item.amount - amount;
+        }
+      }
+
+      for(let item of tempBudgets[1].data) {
+        if (item.name == budget) {
+          item.amount = item.amount - amount;
+        }
+      }
+
+      this.storage.set('budgetsTotal', tempBudgets).then((val) => {});
+    });
   }
 
   addNewAccount(name: String, balance: Number) {

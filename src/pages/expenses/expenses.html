@@ -18,11 +18,14 @@
     <ion-list-header>Expenses</ion-list-header>
 
     <ion-item *ngFor="let item of dataProvider.expenses">
-      <ion-grid>
-        <ion-row (click)="showEditExpense(item)">
-          <ion-col col-4>{{item.date}}</ion-col>
+      <ion-grid (click)="showEditExpense(item)">
+        <ion-row>
           <ion-col>{{item.name}}</ion-col>
           <ion-col class="amount">${{item.amount}}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col id="budget">{{item.budget}}</ion-col>
+          <ion-col id="date">{{item.date}}</ion-col>
         </ion-row>
       </ion-grid>
     </ion-item>

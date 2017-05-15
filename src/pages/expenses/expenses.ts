@@ -24,7 +24,7 @@ export class ExpensesPage {
   }
 
   showEditExpense(item) {
-    let myModal = this.modalCtrl.create(EditExpenseFormModal, {name: item.name, date: item.date, amount: item.amount});
+    let myModal = this.modalCtrl.create(EditExpenseFormModal, {name: item.name, date: item.date, amount: item.amount, budget: item.budget});
     myModal.present()
   }
 
