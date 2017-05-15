@@ -6,7 +6,6 @@ import 'rxjs/add/operator/map';
 export class Data {
 
   budgets: any[];
-  budgetsTotal: any[];
   expenses: any[];
   accounts: any[];
 
@@ -19,10 +18,6 @@ export class Data {
       this.budgets = val;
     });
 
-    this.storage.get('budgetsTotal').then((val) => {
-      this.budgetsTotal = val;
-    });
-
     this.storage.get('expenses').then((val) => {
       this.expenses = val;
     });
@@ -33,19 +28,13 @@ export class Data {
   }
 
   addNewBudget(name, amount, type) {
-    if(type == "variable") {
-      this.budgetsTotal[0].data.push({
-        "name": name,
-        "amount": amount
-      })
-    } else {
-      this.budgetsTotal[1].data.push({
-        "name": name,
-        "amount": amount
-      })
-    }
+    this.budgets.push({
+      "name": name,
+      "amount": amount,
+      "type": type
+    });
 
-    this.storage.set('budgetsTotal', this.budgetsTotal).then((val) => {
+    this.storage.set('budgets', this.budgets).then((val) => {
       console.log("It worked?");
     });
   }
@@ -64,22 +53,16 @@ export class Data {
 
     let tempBudgets: any[];
 
-    this.storage.get('budgetsTotal').then((val) => {
+    this.storage.get('budgets').then((val) => {
       tempBudgets = val;
 
-      for(let item of tempBudgets[0].data) {
+      for(let item of tempBudgets) {
         if (item.name == budget) {
           item.amount = item.amount - amount;
         }
       }
 
-      for(let item of tempBudgets[1].data) {
-        if (item.name == budget) {
-          item.amount = item.amount - amount;
-        }
-      }
-
-      this.storage.set('budgetsTotal', tempBudgets).then((val) => {});
+      this.storage.set('budgets', tempBudgets).then((val) => {});
     });
   }
 

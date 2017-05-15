@@ -11,18 +11,24 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content class="outer-content">
+<ion-content>
 
-    <ion-list *ngFor="let type of dataProvider.budgetsTotal">
+  <ion-list>
 
-      <ion-list-header>{{type.name}}</ion-list-header>
-      <ion-item *ngFor="let item of type.data">
-        <span style="text-align:left;">
-          {{item.name}}
-          <span style="float:right;" [ngClass]="{'negative': item.amount < 0 }">{{item.amount | currency:'USD':true}}</span>
-        </span>
-      </ion-item>
+    <ion-list-header>Budgets</ion-list-header>
 
-    </ion-list>
+    <ion-item *ngFor="let item of dataProvider.budgets">
+      <ion-grid>
+        <ion-row>
+          <ion-col>{{item.name}}</ion-col>
+          <ion-col class="amount" [ngClass]="{'negative': item.amount < 0 }">{{item.amount| currency:'USD':true}}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col id="type">{{item.type}}</ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+
+  </ion-list>
 
 </ion-content>

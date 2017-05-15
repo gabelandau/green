@@ -14,7 +14,7 @@
       <p>Quick overview of some of your high-use budgets.</p>
       <ion-list>
         <ion-grid>
-          <ion-row *ngFor="let item of budgetsTotal">
+          <ion-row *ngFor="let item of dataProvider.budgets | slice:0:3; let i=index">
             <ion-col col-8>{{item.name}}</ion-col>
             <ion-col class="amount" [ngClass]="{'negative': item.amount < 0 }">${{item.amount}}</ion-col>
           </ion-row>

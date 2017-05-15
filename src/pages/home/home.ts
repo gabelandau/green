@@ -17,9 +17,6 @@ export class HomePage {
 
   ionViewDidLoad() {
     this.dataProvider.load();
-    this.storage.get('budgetsTotal').then((val) => {
-      this.budgetsTotal = val[0].data;
-    });
   }
 
 }

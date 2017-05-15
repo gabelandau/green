@@ -32,36 +32,31 @@ export class AdminPage {
 
   setDefaultData() {
     this.storage.ready().then(() => {
-      let budgetsTotal = [
+      let budgets = [
         {
-          name: "Variable",
-          data: [
-            {
-              name: "Shopping",
-              amount: 21.52
-            },
-            {
-              name: "Entertainment",
-              amount: -4.21
-            },
-            {
-              name: "Transportation",
-              amount: 82.62
-            }
-          ]
+          name: "Shopping",
+          amount: 21.52,
+          type: "Variable"
         },
         {
-          name: "Fixed",
-          data: [
-            {
-              name: "Rent",
-              amount: 200
-            },
-            {
-              name: "Utilities",
-              amount: 42.25
-            }
-          ]
+          name: "Entertainment",
+          amount: -4.21,
+          type: "Variable"
+        },
+        {
+          name: "Transportation",
+          amount: 82.62,
+          type: "Variable"
+        },
+        {
+          name: "Rent",
+          amount: 200,
+          type: "Fixed"
+        },
+        {
+          name: "Utilities",
+          amount: 42.25,
+          type: "Fixed"
         }
       ];
 
@@ -70,19 +65,22 @@ export class AdminPage {
           name: "McDonalds",
           date: "04/22/2017",
           amount: 11.52,
-          budget: "Shopping"
+          budget: "Shopping",
+          account: "Checking"
         },
         {
           name: "Best Buy",
           date: "04/22/2017",
           amount: 24.27,
-          budget: "Entertainment"
+          budget: "Entertainment",
+          account: "Checking"
         },
         {
           name: "Target",
           date: "04/21/2017",
           amount: 73.32,
-          budget: "Shopping"
+          budget: "Shopping",
+          account: "Credit Card"
         }
       ];
 
@@ -101,7 +99,7 @@ export class AdminPage {
         }
       ];
 
-      this.storage.set('budgetsTotal', budgetsTotal).then((val) => {
+      this.storage.set('budgets', budgets).then((val) => {
         console.log(val);
       });
       this.storage.set('accounts', accounts).then((val) => {
