@@ -40,13 +40,18 @@ export class Data {
   }
 
   addNewExpense(name: string, date: string, amount: number, budget: string, account: string) {
+    let newId = this.expenses.length + 1;
+
     this.expenses.push({
+      "id": newId,
       "name": name,
       "date": date,
       "amount": amount,
       "budget": budget,
       "account": account
     });
+
+    console.log(newId);
 
     this.storage.set('expenses', this.expenses).then((val) => {
       console.log("It worked x2");
@@ -90,6 +95,24 @@ export class Data {
     this.storage.set('accounts', this.accounts).then((val) => {
       console.log("It worked x3!");
     })
+  }
+
+  editExpense(id: number, name: string, date: string, amount: number, budget: string, account: string) {
+
+    this.storage.get('expenses').then((val) => {
+      for(let item of val) {
+        if (item.id == id) {
+          item.name = name;
+          item.date = date;
+          item.amount = amount;
+          item.budget = budget;
+          item.account = account;
+        }
+      }
+
+      this.storage.set('expenses', this.expenses).then((val) => {});
+
+    });
   }
 
 }

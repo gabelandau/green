@@ -62,22 +62,25 @@ export class AdminPage {
 
       let expenses = [
         {
+          id: 1,
           name: "McDonalds",
-          date: "04/22/2017",
+          date: "2017-04-22",
           amount: 11.52,
           budget: "Shopping",
           account: "Checking"
         },
         {
+          id: 2,
           name: "Best Buy",
-          date: "04/22/2017",
+          date: "2017-04-22",
           amount: 24.27,
           budget: "Entertainment",
           account: "Checking"
         },
         {
+          id: 3,
           name: "Target",
-          date: "04/21/2017",
+          date: "2017-04-21",
           amount: 73.32,
           budget: "Shopping",
           account: "Credit Card"

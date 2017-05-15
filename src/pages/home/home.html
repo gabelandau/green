@@ -16,7 +16,7 @@
         <ion-grid>
           <ion-row *ngFor="let item of dataProvider.budgets | slice:0:3; let i=index">
             <ion-col col-8>{{item.name}}</ion-col>
-            <ion-col class="amount" [ngClass]="{'negative': item.amount < 0 }">${{item.amount}}</ion-col>
+            <ion-col class="amount" [ngClass]="{'negative': item.amount < 0 }">{{item.amount | currency:'USD':true}}</ion-col>
           </ion-row>
         </ion-grid>
       </ion-list>
@@ -34,7 +34,7 @@
           <ion-row *ngFor="let item of dataProvider.expenses">
             <ion-col col-4>{{item.date}}</ion-col>
             <ion-col>{{item.name}}</ion-col>
-            <ion-col class="amount">${{item.amount}}</ion-col>
+            <ion-col class="amount">{{item.amount | currency:'USD':true}}</ion-col>
           </ion-row>
         </ion-grid>
       </ion-list>
@@ -51,7 +51,7 @@
         <ion-grid>
           <ion-row *ngFor="let item of dataProvider.accounts">
             <ion-col col-8>{{item.name}}</ion-col>
-            <ion-col class="amount" [ngClass]="{'negative': item.balance < 0 }">${{item.balance}}</ion-col>
+            <ion-col class="amount" [ngClass]="{'negative': item.balance < 0 }">{{item.balance | currency:'USD':true}}</ion-col>
           </ion-row>
         </ion-grid>
       </ion-list>
